@@ -2,6 +2,7 @@
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+render.html
 
 # Python:
 *.py[cod]
@@ -19,7 +20,6 @@ Desktop.ini
 
 # LocalConfig
 configurations
-render.html
 sessions
 bin
 invnet
