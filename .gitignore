@@ -19,8 +19,7 @@ Desktop.ini
 # LocalConfig
 configurations
 render.html
-webPyNotes.txt
-readme.txt
+*.txt
 sessions
 bin
 invnet
