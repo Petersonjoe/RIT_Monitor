@@ -1,0 +1,52 @@
+C:\VS2013Projects\webpy_form\webpy_frame\bin\Microsoft.PythonTools.WebRole.dll
+C:\VS2013Projects\webpy_form\webpy_frame\obj\Debug\attach_server.py
+C:\VS2013Projects\webpy_form\webpy_frame\obj\Debug\visualstudio_py_debugger.py
+C:\VS2013Projects\webpy_form\webpy_frame\obj\Debug\visualstudio_py_repl.py
+C:\VS2013Projects\webpy_form\webpy_frame\obj\Debug\visualstudio_py_util.py
+C:\VS2013Projects\webpy_form\webpy_frame\obj\Debug\__init__.py
+C:\VS2013Projects\webpy_form\webpy_frame\obj\Debug\__main__.py
+C:\VS2013Projects\webpy_form\webpy_frame\bin\AzureSetup.cfg
+C:\VS2013Projects\webpy_form\webpy_frame\bin\Microsoft.PythonTools.AzureSetup.exe
+C:\VS2013Projects\webpy_form\webpy_frame\bin\Microsoft.PythonTools.AzureSetup.exe.config
+C:\VS2013Projects\webpy_form\webpy_frame\bin\wfastcgi.py
+C:\VS2013Projects\webpy_form\webpy_frame\obj\Debug\web.config
+C:\VS2013Projects\webpy_form\webpy_frame\obj\Debug\web.debug.config
+C:\VS2013Projects\webpy_frame\webpy_frame\bin\Microsoft.PythonTools.WebRole.dll
+C:\VS2013Projects\webpy_frame\webpy_frame\obj\Debug\attach_server.py
+C:\VS2013Projects\webpy_frame\webpy_frame\obj\Debug\visualstudio_py_debugger.py
+C:\VS2013Projects\webpy_frame\webpy_frame\obj\Debug\visualstudio_py_repl.py
+C:\VS2013Projects\webpy_frame\webpy_frame\obj\Debug\visualstudio_py_util.py
+C:\VS2013Projects\webpy_frame\webpy_frame\obj\Debug\__init__.py
+C:\VS2013Projects\webpy_frame\webpy_frame\obj\Debug\__main__.py
+C:\VS2013Projects\webpy_frame\webpy_frame\bin\AzureSetup.cfg
+C:\VS2013Projects\webpy_frame\webpy_frame\bin\Microsoft.PythonTools.AzureSetup.exe
+C:\VS2013Projects\webpy_frame\webpy_frame\bin\Microsoft.PythonTools.AzureSetup.exe.config
+C:\VS2013Projects\webpy_frame\webpy_frame\bin\wfastcgi.py
+C:\VS2013Projects\webpy_frame\webpy_frame\obj\Debug\web.config
+C:\VS2013Projects\webpy_frame\webpy_frame\obj\Debug\web.debug.config
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\bin\Microsoft.PythonTools.WebRole.dll
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\obj\Debug\attach_server.py
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\obj\Debug\visualstudio_py_debugger.py
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\obj\Debug\visualstudio_py_repl.py
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\obj\Debug\visualstudio_py_util.py
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\obj\Debug\__init__.py
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\obj\Debug\__main__.py
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\bin\AzureSetup.cfg
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\bin\Microsoft.PythonTools.AzureSetup.exe
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\bin\Microsoft.PythonTools.AzureSetup.exe.config
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\bin\wfastcgi.py
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\obj\Debug\web.config
+C:\VS2013Projects\webpy_frame - Copy\webpy_frame\obj\Debug\web.debug.config
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\bin\Microsoft.PythonTools.WebRole.dll
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\obj\Debug\attach_server.py
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\obj\Debug\visualstudio_py_debugger.py
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\obj\Debug\visualstudio_py_repl.py
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\obj\Debug\visualstudio_py_util.py
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\obj\Debug\__init__.py
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\obj\Debug\__main__.py
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\bin\AzureSetup.cfg
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\bin\Microsoft.PythonTools.AzureSetup.exe
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\bin\Microsoft.PythonTools.AzureSetup.exe.config
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\bin\wfastcgi.py
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\obj\Debug\web.config
+C:\VS2013Projects\webpy_frame_v2\webpy_frame\obj\Debug\web.debug.config

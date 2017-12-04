@@ -1,0 +1,10 @@
+$def with (para)
+<?xml version="1.0"?> <!--xml declaration must follow the def header-->
+<?xml-stylesheet href="../static/css/xmlstyle.css" type="text/css"?>
+<ToolInfoList>
+$for key, value in para.items():
+    <Info>
+		<key>$key:</key>
+	    <value>$value</value>
+    </Info> 
+</ToolInfoList>

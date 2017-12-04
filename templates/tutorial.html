@@ -1,0 +1,310 @@
+﻿$def with (data)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RIT Performance</title>
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+    <script src="../static/js/echarts/echarts.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navdata" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">RIT DASHBOARD</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navdata">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="/mail_input">PeopleFinder</a></li>
+                        <li class="dropdown" id="kpidropdown">
+                            <a href="#" id="kpis" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">KPIs <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="kpis">
+                                <li><a href="#cpu" data-toggle="tab" tabindex="-1" id="cputab" onclick="getcpudata()">CPU</a></li>
+                                <li><a href="#memory" data-toggle="tab" tabindex="-1" id="memorytab" onclick="getmemorydata()">Memory</a></li>
+                                <li><a href="#disk" data-toggle="tab" tabindex="-1" id="disktab">Disk Space</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="tab-content">
+                <!--Containers for cpu matrices-->
+                <div id="cpu" class="tab-pane active">
+                    <div class="row">
+                        <div id="bicwkr3_cpu" class="col-lg-4" style="width:380px; height:280px" onclick="window.open('/wkrpage', '_self')"></div>
+                        <div id="bicwkr4_cpu" class="col-lg-4" style="width:380px; height:280px"></div>
+                        <div id="cputrend" class="col-lg-4" style="width:350px; height:240px"></div>
+                    </div>
+                    <div class="row">
+                        <div id="bicwkr5_cpu" class="col-lg-4" style="width:380px; height:280px"></div>
+                        <div id="bicwkr6_cpu" class="col-lg-4" style="width:380px; height:280px"></div>
+                        <div id="case_summary_cpu" class="col-lg-4" style="width:380px; height:280px"></div>
+                    </div>
+                </div>
+
+                <!--Containers for memory matrices-->
+                <div id="memory" class="tab-pane">
+                    <div class="row">
+                        <div id="bicwkr3_memory" class="col-lg-4" style="width:380px; height:280px"></div>
+                        <div id="bicwkr4_memory" class="col-lg-4" style="width:380px; height:280px"></div>
+                        <div id="memorytrend" class="col-lg-4" style="width:380px; height:240px"></div>
+                    </div>
+                    <div class="row">
+                        <div id="bicwkr5_memory" class="col-lg-4" style="width:380px; height:280px"></div>
+                        <div id="bicwkr6_memory" class="col-lg-4" style="width:380px; height:280px"></div>
+                        <div id="case_summary_memory" class="col-lg-4" style="width:380px; height:280px"></div>
+                    </div>
+
+                </div>
+
+                <!--Containers for disk matrices-->
+                <div id="disk" class="tab-pane">
+                    <div class="row">
+                        <div id="bicwkr3_disk" class="col-lg-4" style="width:380px; height:280px"></div>
+                        <div id="bicwkr4_disk" class="col-lg-4" style="width:380px; height:280px"></div>
+                        <div id="disktrend" class="col-lg-4" style="width:380px; height:240px"></div>
+                    </div>
+                    <div class="row">
+                        <div id="bicwkr5_disk" class="col-lg-4" style="width:380px; height:280px"></div>
+                        <div id="bicwkr6_disk" class="col-lg-4" style="width:380px; height:280px"></div>
+                        <div id="case_summary_disk" class="col-lg-4" style="width:380px; height:280px"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div id="respondtext" class="col-lg-12"></div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        // for echarts options
+        var bicwkr3cpu = echarts.init(document.getElementById('bicwkr3_cpu'));
+        var bicwkr4cpu = echarts.init(document.getElementById('bicwkr4_cpu'));
+        var bicwkr5cpu = echarts.init(document.getElementById('bicwkr5_cpu'));
+        var bicwkr6cpu = echarts.init(document.getElementById('bicwkr6_cpu'));
+        var cputrendChart = echarts.init(document.getElementById('cputrend'));
+
+        var bicwkr3memory = echarts.init(document.getElementById('bicwkr3_memory'));
+        var bicwkr4memory = echarts.init(document.getElementById('bicwkr4_memory'));
+        var bicwkr5memory = echarts.init(document.getElementById('bicwkr5_memory'));
+        var bicwkr6memory = echarts.init(document.getElementById('bicwkr6_memory'));
+        var memorytrendChart = echarts.init(document.getElementById('memorytrend'));
+
+        var bicwkr3disk = echarts.init(document.getElementById('bicwkr3_disk'));
+        var bicwkr4disk = echarts.init(document.getElementById('bicwkr4_disk'));
+        var bicwkr5disk = echarts.init(document.getElementById('bicwkr5_disk'));
+        var bicwkr6disk = echarts.init(document.getElementById('bicwkr6_disk'));
+        var disktrendChart = echarts.init(document.getElementById('disktrend'));
+
+        var casechart_cpu = echarts.init(document.getElementById("case_summary_cpu"));
+        var casechart_mem = echarts.init(document.getElementById("case_summary_memory"));
+        var casechart_disk = echarts.init(document.getElementById("case_summary_disk"));
+
+        // for timer control
+        var timercpu, timermemory, timerdisk;
+
+        var casetrendOption = {
+            title: {
+                x: 'left',
+                text: 'RIT case summary'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            calculable: true,
+            grid: {
+                borderWidth: 0,
+                y: 60,
+                y2: 60
+            },
+            yAxis: [
+                {
+                    type: 'category',
+                    show: false,
+                    data: ['#Abnormal Case', '#Pending Case', '#Failed Case', '#Case']
+                }
+            ],
+            xAxis: [
+                {
+                    type: 'value',
+                    show: false
+                }
+            ],
+            series: [
+                {
+                    name: 'RIT case summary',
+                    type: 'bar',
+                    barCategoryGap: '60%',
+                    itemStyle: {
+                        normal: {
+                            color: function (params) {
+                                // build a color map as your need.
+                                var colorList = [
+                                 '#F4E001', '#B5C334', '#C1232B', '#F0805A'
+                                ];
+                                return colorList[params.dataIndex]
+                            },
+                            label: {
+                                show: true,
+                                position: 'top',
+                                formatter: '{b}:{c}'
+                            }
+                        }
+                    },
+                    data: []
+                }
+            ]
+        };
+
+        $$(document).ready(function () {
+            // process cpu
+            $$.ajax({
+                url: "/jsondata",
+                data: {
+                    "matrice": "cpu"
+                },
+                success: function (data) {
+                    var bicwkr3Option = JSON.parse(data.bicwkr3);
+                    var bicwkr4Option = JSON.parse(data.bicwkr4);
+                    var bicwkr5Option = JSON.parse(data.bicwkr5);
+                    var bicwkr6Option = JSON.parse(data.bicwkr6);
+                    var cputrendOption = JSON.parse(data.cputrend);
+
+                    bicwkr3cpu.setOption(bicwkr3Option);
+                    bicwkr4cpu.setOption(bicwkr4Option);
+                    bicwkr5cpu.setOption(bicwkr5Option);
+                    bicwkr6cpu.setOption(bicwkr6Option);
+                    cputrendChart.setOption(cputrendOption);
+                },
+                dataType: "json"
+            });
+
+            // process memory
+            $$.ajax({
+                url: "/jsondata",
+                data: {
+                    "matrice": "memory"
+                },
+                success: function (data) {
+                    debugger;
+                    var bicwkr3Option = JSON.parse(data.bicwkr3);
+                    var bicwkr4Option = JSON.parse(data.bicwkr4);
+                    var bicwkr5Option = JSON.parse(data.bicwkr5);
+                    var bicwkr6Option = JSON.parse(data.bicwkr6);
+                    var memorytrendOption = JSON.parse(data.memorytrend);
+
+                    bicwkr3memory.setOption(bicwkr3Option);
+                    bicwkr4memory.setOption(bicwkr4Option);
+                    bicwkr5memory.setOption(bicwkr5Option);
+                    bicwkr6memory.setOption(bicwkr6Option);
+                    memorytrendChart.setOption(memorytrendOption);
+                },
+                dataType: "json"
+            });
+
+            // process case chart in cpu & mem tab
+            $$.ajax({
+                url: "/jsondata",
+                data: {
+                    "matrice": "casesummary"
+                },
+                success: function (data) {
+                    casetrendOption.series[0].data = data;
+                    casechart_cpu.setOption(casetrendOption);
+                    casechart_mem.setOption(casetrendOption);
+                },
+                dataType: "json"
+            });
+        });
+        
+        function getcpudata(flag) {
+            if (timermemory) {
+                clearInterval(timermemory);
+            };
+
+            timercpu = setInterval(function () {
+                $$.ajax({
+                    url: "/jsondata",
+                    data: {
+                        "matrice": "cpu"
+                    },
+                    success: function (data) {
+                        var bicwkr3Option = JSON.parse(data.bicwkr3);
+                        var bicwkr4Option = JSON.parse(data.bicwkr4);
+                        var bicwkr5Option = JSON.parse(data.bicwkr5);
+                        var bicwkr6Option = JSON.parse(data.bicwkr6);
+                        var cputrendOption = JSON.parse(data.cputrend);
+
+                        bicwkr3cpu.setOption(bicwkr3Option);
+                        bicwkr4cpu.setOption(bicwkr4Option);
+                        bicwkr5cpu.setOption(bicwkr5Option);
+                        bicwkr6cpu.setOption(bicwkr6Option);
+                        cputrendChart.setOption(cputrendOption);
+                    },
+                    dataType: "json"
+                });
+            }, 5000);
+        };
+
+        function getmemorydata() {
+            if (timercpu) {
+                clearInterval(timercpu);
+            };
+
+            timermemory = setInterval(function () {
+                jQuery.ajax({
+                    url: "/jsondata",
+                    data: {
+                        "matrice": "memory"
+                    },
+                    success: function (data) {
+                        var bicwkr3Option = JSON.parse(data.bicwkr3);
+                        var bicwkr4Option = JSON.parse(data.bicwkr4);
+                        var bicwkr5Option = JSON.parse(data.bicwkr5);
+                        var bicwkr6Option = JSON.parse(data.bicwkr6);
+                        var memorytrendOption = JSON.parse(data.memorytrend);
+
+                        bicwkr3memory.setOption(bicwkr3Option);
+                        bicwkr4memory.setOption(bicwkr4Option);
+                        bicwkr5memory.setOption(bicwkr5Option);
+                        bicwkr6memory.setOption(bicwkr6Option);
+                        memorytrendChart.setOption(memorytrendOption);
+                    },
+                    dataType: "json"
+                });
+            }, 5000);
+        };
+
+    </script>
+</body>
+
+</html>

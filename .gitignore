@@ -1,0 +1,24 @@
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+
+# Misc
+*.1f1
+*.config
+*.pyproj
+*.ia4
+*.dbb
+
+# LocalConfig
+configurations
+render.html
+webPyNotes.txt
+readme.txt
+sessions
