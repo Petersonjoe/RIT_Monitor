@@ -15,13 +15,12 @@ Desktop.ini
 *.pyproj
 *.ia4
 *.dbb
+*.txt
 
 # LocalConfig
 configurations
 render.html
-*.txt
 sessions
 bin
 invnet
-obj
-debug
+obj/Debug
